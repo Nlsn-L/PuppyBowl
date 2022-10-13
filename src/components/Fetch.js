@@ -1,9 +1,7 @@
 import React from "react";
-import Navbar from "./Navbar";
 import {useState, useEffect} from "react";
-import Fetch from "./Fetch";
 
-const Main = () => {
+const Fetch = (props) => {
     const [data, setData] = useState([])
     useEffect(()=>{
         async function getData() {
@@ -15,12 +13,6 @@ const Main = () => {
         }
         getData()
     },[])
+}
 
-  return (
-    <div id="main">
-      <Navbar />
-  </div>
-  );
-  }  
-
-export default Main;
+export default Fetch 
