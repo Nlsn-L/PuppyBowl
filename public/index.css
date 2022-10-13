@@ -12,7 +12,7 @@ body {
   flex-direction: column;
 }
 
-#navbar {
+#Navbar {
   font-family: 'Poller One', Arial, sans-serif;
   flex-grow: 1;
   max-height: 10%;
@@ -21,10 +21,14 @@ body {
   color: white;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding-right: 10px;
 }
 
 #navbar div {
-  padding: 5px;
+  padding-left: 10px;
 }
+
+
 
 
