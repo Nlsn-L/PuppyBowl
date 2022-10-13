@@ -6,9 +6,9 @@ const PuppyList = (props) => {
      return (
       <div className='box'>
        {myPuppies.length ? myPuppies.map((puppy) => {
-        return (<div key={`player-${puppy.id}`}>
-          <div>{<img src={puppy.imageUrl}></img>}</div>
+        return (<div className="pupCards" key={`player-${puppy.id}`}>
           <div>{puppy.name}</div>
+          <div>{<img src={puppy.imageUrl}></img>}</div>
           <div>{puppy.breed}</div>
           <div>{puppy.status}</div>
           </div>)
