@@ -9,7 +9,7 @@ const PuppyList = (props) => {
       <div className='box'>
        {myPuppies.length ? myPuppies.map((puppy) => {
         return (
-          <SinglePuppy key={`player-${puppy.id}`} puppy={puppy}  onClick= {() => props.selectPuppy(puppy.id)}/>
+          <SinglePuppy key={`player-${puppy.id}`} puppy={puppy} selectPuppy={props.selectPuppy}/>
           )
        }):<div>Loading the Cutest Puppies</div>}
       
