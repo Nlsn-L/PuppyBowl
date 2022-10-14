@@ -1,4 +1,5 @@
 import React from "react";
+import SinglePuppy from "./SinglePuppy";
 
 const PuppyList = (props) => {
   const myPuppies = props.puppyData;
@@ -6,12 +7,9 @@ const PuppyList = (props) => {
      return (
       <div className='box'>
        {myPuppies.length ? myPuppies.map((puppy) => {
-        return (<div className="pupCards" key={`player-${puppy.id}`}>
-          <div>{puppy.name}</div>
-          <div>{<img src={puppy.imageUrl}></img>}</div>
-          <div>{puppy.breed}</div>
-          <div>{puppy.status}</div>
-          </div>)
+        return (
+          <SinglePuppy key={`player-${puppy.id}`} puppy={puppy}/>
+        )
        }):<div>Loading the Cutest Puppies</div>}
       
       </div>

@@ -3,7 +3,7 @@ import React from "react";
 const Navbar = () => {
   return (
     <div id= "Navbar">
-        <h2> Puppy Bowl</h2>
+        <h2> Puppy Bowl || 2022</h2>
       <form>
         <label>
     Name:
