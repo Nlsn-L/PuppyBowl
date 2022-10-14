@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from "react";
 import Navbar from "./Navbar";
-import PuppyList from "./PuppyList";
 import PuppyDetails from "./PuppyDetails";
+import PuppyList from "./PuppyList";
 
 const Main = () => {
     const [puppyData, setPuppyData] = useState([])
@@ -11,6 +11,7 @@ const Main = () => {
       let jsonData = await response.json()
       const puppies = jsonData.data.players
       setPuppyData(puppies)
+      console.log(puppies)
   }
 
     useEffect(()=>{
@@ -21,17 +22,20 @@ const Main = () => {
     const selectPuppy = async(puppyId) => { let response = await fetch (`https://fsa-puppy-bowl.herokuapp.com/api/2209-FTB-Et-WEB-FT/players/${puppyId}`
     ) 
     let jsonData = await response.json()
-    const puppy = jsonData.data.player
-    console.log(puppy)
-    setSelectedPuppy(puppy)
+    // console.log(jsonData)
+    setSelectedPuppy(jsonData)
   }
 
+  // console.log(puppyData)
+  
 
   return (
     <div id="main">
-      <Navbar />{selectedPuppy.id ? <PuppyDetails selectedPuppy={selectedPuppy} setSelectedPuppy={setSelectedPuppy}/> : 
+      <Navbar puppyData={puppyData} setPuppyData={setPuppyData} getPuppyData={getPuppyData}/>
+      {selectedPuppy.id ? <PuppyDetails selectedPuppy={selectedPuppy} setSelectedPuppy={setSelectedPuppy}/> : 
            <PuppyList puppyData={puppyData} selectPuppy={selectPuppy} />
       }
+
   </div>
   );
   }  
