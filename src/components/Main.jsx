@@ -16,6 +16,14 @@ const Main = () => {
         getPuppyData();
     },[])
 
+    const [selectedPuppy, setSelectedPuppy] = useState([])
+    const selectPuppy = async(puppyid) => { let response = await fetch (`https://fsa-puppy-bowl.herokuapp.com/api/2209-FTB-Et-WEB-FT/${puppyId}`
+    ) 
+    let jsonData = await response.json()
+    setSelectedPuppy(jsonData)
+  }
+
+
   return (
     <div id="main">
       <Navbar />
