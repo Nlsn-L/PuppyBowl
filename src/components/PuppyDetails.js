@@ -8,8 +8,7 @@ const PuppyDetails = (props) => {
         <div>{<img src={puppy.imageUrl}></img>}</div>
         <div>{puppy.breed}</div>
         <div>{puppy.status}</div>
-        {/* <div>{puppy.team.player}</div> */}
-        <div>{puppy.Id}</div>
+        <div>{puppy.id}</div>
         
         </div>)
 

@@ -11,7 +11,6 @@ const Main = () => {
       let jsonData = await response.json()
       const puppies = jsonData.data.players
       setPuppyData(puppies)
-      console.log(puppies)
   }
 
     useEffect(()=>{
@@ -22,16 +21,18 @@ const Main = () => {
     const selectPuppy = async(puppyId) => { let response = await fetch (`https://fsa-puppy-bowl.herokuapp.com/api/2209-FTB-Et-WEB-FT/players/${puppyId}`
     ) 
     let jsonData = await response.json()
-    // console.log(jsonData)
-    setSelectedPuppy(jsonData)
+    const puppy = jsonData.data.player
+    setSelectedPuppy(puppy)
   }
 
-  // console.log(puppyData)
   
+
+
+
 
   return (
     <div id="main">
-      <Navbar puppyData={puppyData} setPuppyData={setPuppyData} getPuppyData={getPuppyData}/>
+      <Navbar setPuppyData={setPuppyData} puppyData={puppyData}/>
       {selectedPuppy.id ? <PuppyDetails selectedPuppy={selectedPuppy} setSelectedPuppy={setSelectedPuppy}/> : 
            <PuppyList puppyData={puppyData} selectPuppy={selectPuppy} />
       }

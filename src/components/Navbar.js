@@ -1,41 +1,34 @@
-import React, { useState } from "react";
+import React,{useState} from "react";
+
 
 const Navbar = (props) => {
-  const [searchInput, setSearchInput] = useState("");
-  const puppyData = props.puppyData
-  
-  console.log(puppyData)
-  
-  let mainData= puppyData
+  const searchPuppy = props.puppyData
+  const setPuppyData = props.setPuppyData
+  const [inputText,setInputText] = useState("")
+  let inputHandler = (e) => {
+    e.preventDefault()
+    setInputText(e.target.value)
 
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    setSearchInput(e.target.value);
-    
-    if(searchInput.length > 0) {
-    console.log(puppyData)
-    let searchPuppy = puppyData.filter((puppy) => {
-      return puppy.name.match(searchInput);
-    });
-    
-    props.setPuppyData(searchPuppy);
-    
-  }else {props.setPuppyData(mainData)}
-
-  };
-
+    let filteredData = searchPuppy.map((el) => {
+      if (props.input === ''){
+      return el
+      } else {
+        return el.name.match(e.target.value)
+      }
+    })
+    console.log(filteredData)
+    return filteredData
+  }
  
-  
   return (
     <div id= "Navbar">
         <h2> Puppy Bowl || 2022</h2>
       <form>
         <label>
     Name:
-    <input type="text" placeholder="Search Puppies" onChange={handleSearch} value={searchInput}  />
+    <input type="text" placeholder="Search Puppies" onChange={inputHandler} value={inputText}  />
   </label>
-  <input onChange={handleSearch} type="Submit" value="Clear" />
+  {/* <input type="submit" value="Submit" /> */}
     </form>
  
   </div>
